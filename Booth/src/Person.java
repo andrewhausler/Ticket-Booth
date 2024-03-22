@@ -15,6 +15,7 @@ public class Person
         this.lastName = lastName;
         this.age = age;
         this.phoneNumber = phoneNumber;
+        myTicketHistory = new ArrayList<Ticket>();
         myCard = null;
     }
 
