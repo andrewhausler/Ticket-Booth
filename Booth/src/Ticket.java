@@ -89,7 +89,7 @@ public class Ticket implements Comparable<Ticket>
 
     public int checkDateDifferences(Ticket otherTicket);
 
-    public int compareTo(Ticket otherTicket);
+    public int compareTo(Ticket otherTicket);w
 
     public String toString()
     {
