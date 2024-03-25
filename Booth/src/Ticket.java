@@ -87,9 +87,59 @@ public class Ticket implements Comparable<Ticket>
         totalTickets = totalTickets - 1;
     }
 
-    public int checkDateDifferences(Ticket otherTicket);
+    /**
+     * This Method Finds The Differences Between Dates Of Ticket Events 
+     * This Is Mainly Meant For compareTo Method But Easier To Build On A Seperate Method And May Be Used For Other Purposes As Well
+     * @param otherTicket
+     * @return returns the int number for compareTo to use
+     */
+    public int checkDateDifferences(Ticket otherTicket)
+    {
+        if(Integer.valueOf(this.getDate().substring(6, this.getDate().length()-1)) > Integer.valueOf(otherTicket.getDate().substring(6, otherTicket.getDate().length()-1)))
+        {
+            return 1;
+        }
+        else if(Integer.valueOf(this.getDate().substring(6, this.getDate().length()-1)) == Integer.valueOf(otherTicket.getDate().substring(6, otherTicket.getDate().length()-1)))
+        {
+            if(Integer.valueOf(this.getDate().substring(0, 2)) > Integer.valueOf(otherTicket.getDate().substring(0,2)))
+            {
+                return 1;
+            }
+            else if(Integer.valueOf(this.getDate().substring(0,2)) == Integer.valueOf(otherTicket.getDate().substring(0,2)))
+            {
+                if(Integer.valueOf(this.getDate().substring(3, 5)) > Integer.valueOf(otherTicket.getDate().substring(3,5)))
+                {
+                    return 1;
+                }
+                else if(Integer.valueOf(this.getDate().substring(3,5)) == Integer.valueOf(otherTicket.getDate().substring(3,5)))
+                {
+                    return 0;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        else
+        {
+            return -1;
+        }
+    }
 
-    public int compareTo(Ticket otherTicket);
+    /**
+     * Built For Sorting Purposes
+     * @param otherTicket the other possible instance of Ticket
+     * @return returns an int number that compares other instances for proper sorting 
+     */
+    public int compareTo(Ticket otherTicket)
+    {
+        return checkDateDifferences(otherTicket);
+    }
 
     public String toString()
     {
