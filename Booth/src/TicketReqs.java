@@ -1,9 +1,9 @@
-public interface TicketReqs
+public interface TicketReqs<Type>
 {
     /**
      * Adds A Ticket To The List Of Other Available Ticket Events
      */
-    public void addTicketEvent();
+    public void addNewTicketEvent(Ticket ticketEvent);
 
     /**
      * Removes An Active Ticket 
@@ -11,12 +11,12 @@ public interface TicketReqs
      * This Should Not Be Used For Mistakes In A Ticket Information And Needed To Remove A False Ticket From The Site
      * Before Adding A Ticket Must Check Specs Thoroughly
      */
-    public void removeTicketEvent();
+    public Type removeTicketEvent(String ticketEvent);
 
     /**
      * Helps Find The Specific Ticket You Are In Search For 
      */
-    public Ticket findTicketEvent(String ticketEventName);
+    public Type findTicketEvent(String ticketEventName);
 
     /**
      * Should Be Used Everytime You Add A New Event Call The Collection.Sort
