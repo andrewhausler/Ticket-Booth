@@ -40,4 +40,13 @@ public class AdminPage
             return -1;
         }
     }
+
+    public static void makeTicket()
+    {
+        
+        Ticket newTicket = new Ticket();
+        String eventType = input.nextLine();
+        newTicket.setEvent(eventType);
+        String 
+    }
 }
